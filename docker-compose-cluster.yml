@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  cassandra-1:
+    image: bde2020/cassandra
+    container_name: cassandra-1
+    environment:
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra-1
+      - CASSANDRA_LISTEN_ADDRESS=cassandra-1
+  cassandra-2:
+    image: bde2020/cassandra
+    container_name: cassandra-2
+    environment:
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra-2
+      - CASSANDRA_LISTEN_ADDRESS=cassandra-2
+      - CASSANDRA_SEEDS=cassandra-1
+    depends_on:
+      - cassandra-1

@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+
+  cassandra:
+    image:  bde2020/cassandra
